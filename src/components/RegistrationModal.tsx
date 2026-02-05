@@ -27,11 +27,11 @@ const RegistrationModal = ({ isOpen, onClose }: RegistrationModalProps) => {
             initial={{ opacity: 0, y: "100%" }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: "100%" }}
-            transition={{ 
-              type: "spring", 
-              damping: 30, 
+            transition={{
+              type: "spring",
+              damping: 30,
               stiffness: 300,
-              duration: 0.5 
+              duration: 0.5
             }}
             className="fixed bottom-0 left-0 right-0 z-50 max-h-[90vh] overflow-auto"
           >
@@ -42,7 +42,7 @@ const RegistrationModal = ({ isOpen, onClose }: RegistrationModalProps) => {
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                     <span className="font-mono text-sm text-muted-foreground">
-                      NEW USER PROTOCOL // V.3.0
+                      NEW USER PROTOCOL // V.2.0
                     </span>
                   </div>
                   <button

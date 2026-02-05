@@ -1,3 +1,252 @@
+// import { useState, useEffect } from "react";
+// import { motion } from "framer-motion";
+// import { Terminal, Cpu, Shield, Users, Zap } from "lucide-react";
+
+// interface LandingPageProps {
+//   onOpenRegistration: () => void;
+//   isBlurred: boolean;
+// }
+
+// const LandingPage = ({ onOpenRegistration, isBlurred }: LandingPageProps) => {
+//   const [currentTime, setCurrentTime] = useState(new Date());
+
+//   useEffect(() => {
+//     const timer = setInterval(() => setCurrentTime(new Date()), 1000);
+//     return () => clearInterval(timer);
+//   }, []);
+
+//   const formatTime = (date: Date) => {
+//     return date.toLocaleTimeString("en-US", {
+//       hour12: false,
+//       hour: "2-digit",
+//       minute: "2-digit",
+//       second: "2-digit",
+//     });
+//   };
+
+//   return (
+//     <motion.div
+//       animate={{
+//         scale: isBlurred ? 0.95 : 1,
+//         filter: isBlurred ? "blur(8px)" : "blur(0px)",
+//       }}
+//       transition={{ duration: 0.4, ease: "easeInOut" }}
+//       className="fixed inset-0 bg-background"
+//     >
+//       {/* Digital grid floor */}
+//       <div className="digital-grid" />
+
+//       {/* HUD Elements */}
+//       <HUDElements currentTime={currentTime} formatTime={formatTime} />
+
+//       {/* Main Hero Content */}
+//       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4">
+//         {/* Logo/Icon */}
+//         <motion.div
+//           initial={{ opacity: 0, scale: 0.5 }}
+//           animate={{ opacity: 1, scale: 1 }}
+//           transition={{ delay: 0.2, duration: 0.5 }}
+//           className="mb-8"
+//         >
+//           <div className="relative">
+//             <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full" />
+//             <div className="relative p-6 border border-primary/30 rounded-full">
+//               <Terminal className="w-16 h-16 text-primary" />
+//             </div>
+//           </div>
+//         </motion.div>
+
+//         {/* Main Headline */}
+//         <motion.h1
+//           initial={{ opacity: 0, y: 30 }}
+//           animate={{ opacity: 1, y: 0 }}
+//           transition={{ delay: 0.4, duration: 0.6 }}
+//           className="text-5xl md:text-7xl font-bold font-display text-center mb-4 glitch-text cursor-default"
+//         >
+//           <span className="text-glow">WLUG</span>
+//           <span className="text-secondary ml-4">ARCHITECTS</span>
+//         </motion.h1>
+
+//         {/* Subtext */}
+//         <motion.p
+//           initial={{ opacity: 0, y: 20 }}
+//           animate={{ opacity: 1, y: 0 }}
+//           transition={{ delay: 0.6, duration: 0.5 }}
+//           className="text-muted-foreground text-lg md:text-xl font-mono text-center mb-12 max-w-xl"
+//         >
+//           The Open Source Revolution Starts Here
+//         </motion.p>
+
+//         {/* Feature pills */}
+//         <motion.div
+//           initial={{ opacity: 0 }}
+//           animate={{ opacity: 1 }}
+//           transition={{ delay: 0.8, duration: 0.5 }}
+//           className="flex flex-wrap justify-center gap-4 mb-12"
+//         >
+//           {[
+//             { icon: Cpu, text: "Linux Mastery" },
+//             { icon: Shield, text: "Open Source" },
+//             { icon: Zap, text: "Innovation" },
+//           ].map(({ icon: Icon, text }, index) => (
+//             <div
+//               key={index}
+//               className="flex items-center gap-2 px-4 py-2 bg-black/40 border border-white/10 rounded-full"
+//             >
+//               <Icon className="w-4 h-4 text-primary" />
+//               <span className="text-sm font-mono text-foreground/80">{text}</span>
+//             </div>
+//           ))}
+//         </motion.div>
+
+//         {/* Main CTA Button */}
+//         <motion.button
+//           initial={{ opacity: 0, scale: 0.9 }}
+//           animate={{ opacity: 1, scale: 1 }}
+//           transition={{ delay: 1, duration: 0.5 }}
+//           whileHover={{ scale: 1.05 }}
+//           whileTap={{ scale: 0.98 }}
+//           onClick={onOpenRegistration}
+//           className="group relative px-10 py-5 bg-primary/10 border-2 border-primary text-primary font-bold uppercase tracking-[0.2em] font-mono pulse-button transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
+//         >
+//           <span className="relative z-10 flex items-center gap-3">
+//             <span className="text-primary/60 group-hover:text-primary-foreground/60">[</span>
+//             INITIALIZE REGISTRATION
+//             <span className="text-primary/60 group-hover:text-primary-foreground/60">]</span>
+//           </span>
+//         </motion.button>
+
+//         {/* Decorative brackets around CTA */}
+//         <motion.div
+//           initial={{ opacity: 0 }}
+//           animate={{ opacity: 1 }}
+//           transition={{ delay: 1.2 }}
+//           className="mt-8 flex items-center gap-4 text-muted-foreground/50 font-mono text-xs"
+//         >
+//           <span>{'<'}</span>
+//           <span>MB_2_RECRUITMENT</span>
+//           <span>{'/'}</span>
+//           <span>ACTIVE</span>
+//           <span>{'>'}</span>
+//         </motion.div>
+//       </div>
+//     </motion.div>
+//   );
+// };
+
+// // HUD Elements Component
+// const HUDElements = ({
+//   currentTime,
+//   formatTime,
+// }: {
+//   currentTime: Date;
+//   formatTime: (date: Date) => string;
+// }) => {
+//   return (
+//     <>
+//       {/* Top Right - System Time */}
+//       <motion.div
+//         initial={{ opacity: 0, x: 20 }}
+//         animate={{ opacity: 1, x: 0 }}
+//         transition={{ delay: 0.5 }}
+//         className="fixed top-6 right-6 z-20"
+//       >
+//         <div className="hud-bracket p-4">
+//           <div className="text-xs text-muted-foreground font-mono mb-1">
+//             SYSTEM_TIME
+//           </div>
+//           <div className="text-2xl font-mono text-primary text-glow">
+//             {formatTime(currentTime)}
+//           </div>
+//         </div>
+//       </motion.div>
+
+//       {/* Top Left - Logo */}
+//       {/* <motion.div
+//         initial={{ opacity: 0, x: -20 }}
+//         animate={{ opacity: 1, x: 0 }}
+//         transition={{ delay: 0.5 }}
+//         className="fixed top-6 left-6 z-20"
+//       >
+//         <div className="flex items-center gap-3">
+//           <div className="w-10 h-10 border border-primary/50 flex items-center justify-center">
+//             <Terminal className="w-5 h-5 text-primary" />
+//           </div>
+//           <div>
+//             <div className="text-sm font-display font-bold text-foreground">WLUG</div>
+//             <div className="text-xs text-muted-foreground font-mono">V.2.0</div>
+//           </div>
+//         </div>
+//       </motion.div> */}
+//       {/* Top Left - Logo */}
+//       <motion.div
+//         initial={{ opacity: 0, x: -20 }}
+//         animate={{ opacity: 1, x: 0 }}
+//         transition={{ delay: 0.5 }}
+//         className="fixed top-6 left-6 z-20"
+//       >
+//         <div className="flex items-center gap-3">
+//           {/* IMAGE REPLACEMENT START */}
+//           {/* Note: Use slash '/' at the start to reference public folder directly */}
+//           <img 
+//             src="/wlug-logo.jpeg" 
+//             alt="WLUG Logo" 
+//             className="w-10 h-10 object-contain" 
+//           />
+//           {/* IMAGE REPLACEMENT END */}
+
+//           <div>
+//             <div className="text-sm font-display font-bold text-foreground">WLUG</div>
+//             <div className="text-xs text-muted-foreground font-mono">V.2.0</div>
+//           </div>
+//         </div>
+//       </motion.div>
+
+//       {/* Bottom Left - Status */}
+//       <motion.div
+//         initial={{ opacity: 0, y: 20 }}
+//         animate={{ opacity: 1, y: 0 }}
+//         transition={{ delay: 0.7 }}
+//         className="fixed bottom-6 left-6 z-20"
+//       >
+//         <div className="flex items-center gap-3 px-4 py-2 bg-black/40 border border-white/10 rounded">
+//           <div className="status-dot" />
+//           <span className="text-xs font-mono text-muted-foreground">
+//             STATUS: <span className="text-green-400">ONLINE</span>
+//           </span>
+//         </div>
+//       </motion.div>
+
+//       {/* Bottom Right - Network Stats */}
+//       <motion.div
+//         initial={{ opacity: 0, y: 20 }}
+//         animate={{ opacity: 1, y: 0 }}
+//         transition={{ delay: 0.7 }}
+//         className="fixed bottom-6 right-6 z-20"
+//       >
+//         <div className="flex items-center gap-3 px-4 py-2 bg-black/40 border border-white/10 rounded">
+//           <Users className="w-4 h-4 text-primary" />
+//           <span className="text-xs font-mono text-muted-foreground">
+//             NETWORK: <span className="text-primary">500+ NODES</span>
+//           </span>
+//         </div>
+//       </motion.div>
+
+//       {/* Crosshair decorations */}
+//       <div className="fixed top-1/2 left-8 -translate-y-1/2 text-primary/20 text-2xl font-mono z-10">
+//         +
+//       </div>
+//       <div className="fixed top-1/2 right-8 -translate-y-1/2 text-primary/20 text-2xl font-mono z-10">
+//         +
+//       </div>
+//     </>
+//   );
+// };
+
+// export default LandingPage;
+
+
+
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Terminal, Cpu, Shield, Users, Zap } from "lucide-react";
@@ -41,7 +290,7 @@ const LandingPage = ({ onOpenRegistration, isBlurred }: LandingPageProps) => {
 
       {/* Main Hero Content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4">
-        {/* Logo/Icon */}
+        {/* Logo/Icon - CENTERED HERE */}
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -50,8 +299,14 @@ const LandingPage = ({ onOpenRegistration, isBlurred }: LandingPageProps) => {
         >
           <div className="relative">
             <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full" />
-            <div className="relative p-6 border border-primary/30 rounded-full">
-              <Terminal className="w-16 h-16 text-primary" />
+            <div className="relative p-4 border border-primary/30 rounded-full flex items-center justify-center bg-black/20 backdrop-blur-sm">
+              {/* --- IMAGE REPLACED HERE --- */}
+              <img 
+                src="/wlug-logo.jpeg" 
+                alt="WLUG Logo" 
+                className="w-32 h-32 object-contain rounded-full" 
+              />
+              {/* --------------------------- */}
             </div>
           </div>
         </motion.div>
@@ -61,20 +316,29 @@ const LandingPage = ({ onOpenRegistration, isBlurred }: LandingPageProps) => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="text-5xl md:text-7xl font-bold font-display text-center mb-4 glitch-text cursor-default"
+          className="text-3xl md:text-5xl font-bold font-display text-center mb-4 glitch-text cursor-default"
         >
-          <span className="text-glow">WLUG</span>
-          <span className="text-secondary ml-4">ARCHITECTS</span>
+          <span className="text-glow">WALCHAND</span>
+          <span className="text-secondary ml-4">LINUX USERS' GROUP</span>
         </motion.h1>
 
         {/* Subtext */}
-        <motion.p
+        {/* <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.5 }}
           className="text-muted-foreground text-lg md:text-xl font-mono text-center mb-12 max-w-xl"
         >
-          The Open Source Revolution Starts Here
+        Prepare to join a vibrant community of Linux enthusiasts and <br /> 
+        immerse yourself in the dynamic World of Open Source.        
+        </motion.p> */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.5 }}
+          className="text-muted-foreground text-lg md:text-xl font-mono text-center mb-12 max-w-2xl mx-auto"
+          >
+          Join a vibrant community of Linux enthusiasts and master the World of Open Source.
         </motion.p>
 
         {/* Feature pills */}
@@ -124,7 +388,7 @@ const LandingPage = ({ onOpenRegistration, isBlurred }: LandingPageProps) => {
           className="mt-8 flex items-center gap-4 text-muted-foreground/50 font-mono text-xs"
         >
           <span>{'<'}</span>
-          <span>PHASE_3_RECRUITMENT</span>
+          <span>MB_2_RECRUITMENT</span>
           <span>{'/'}</span>
           <span>ACTIVE</span>
           <span>{'>'}</span>
@@ -161,7 +425,26 @@ const HUDElements = ({
         </div>
       </motion.div>
 
-      {/* Top Left - Logo */}
+      {/* Top Left - Logo (Kept as fallback or you can remove if you only want center) */}
+      {/* <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.5 }}
+        className="fixed top-6 left-6 z-20"
+      >
+        <div className="flex items-center gap-3">
+          <img 
+            src="/wlug-logo.jpeg" 
+            alt="WLUG Logo" 
+            className="w-10 h-10 object-contain rounded-full" 
+          />
+
+          <div>
+            <div className="text-sm font-display font-bold text-foreground">WLUG</div>
+            <div className="text-xs text-muted-foreground font-mono">V.2.0</div>
+          </div>
+        </div>
+      </motion.div> */}
       <motion.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
@@ -174,11 +457,10 @@ const HUDElements = ({
           </div>
           <div>
             <div className="text-sm font-display font-bold text-foreground">WLUG</div>
-            <div className="text-xs text-muted-foreground font-mono">v3.0</div>
+            <div className="text-xs text-muted-foreground font-mono">V.2.0</div>
           </div>
         </div>
       </motion.div>
-
       {/* Bottom Left - Status */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}

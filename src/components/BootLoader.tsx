@@ -56,18 +56,17 @@ const BootLoader = ({ onComplete }: BootLoaderProps) => {
     <AnimatePresence>
       <motion.div
         initial={{ opacity: 1 }}
-        exit={{ 
+        exit={{
           opacity: 0,
           scale: 1.1,
           filter: "brightness(2)",
         }}
         transition={{ duration: 0.3 }}
-        className={`fixed inset-0 bg-background z-50 flex flex-col items-center justify-center p-8 ${
-          isGlitching ? "animate-[screen-glitch_0.5s_ease-in-out]" : ""
-        }`}
+        className={`fixed inset-0 bg-background z-50 flex flex-col items-center justify-center p-8 ${isGlitching ? "animate-[screen-glitch_0.5s_ease-in-out]" : ""
+          }`}
       >
         {/* Terminal window */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="w-full max-w-2xl"
@@ -78,7 +77,7 @@ const BootLoader = ({ onComplete }: BootLoaderProps) => {
             <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
             <div className="w-3 h-3 rounded-full bg-green-500/80" />
             <span className="ml-4 text-xs text-muted-foreground font-mono">
-              WLUG_SYSTEM_v3.0
+              WLUG_SYSTEM_V.2.0
             </span>
           </div>
 
@@ -99,7 +98,7 @@ const BootLoader = ({ onComplete }: BootLoaderProps) => {
                   </span>
                 </motion.div>
               ))}
-              
+
               {/* Blinking cursor */}
               {currentMessages.length < bootMessages.length && (
                 <div className="terminal-cursor text-primary text-sm" />
