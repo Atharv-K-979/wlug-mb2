@@ -50,7 +50,7 @@ const LandingPage = ({ onScrollToRecruitment, isBlurred }: LandingPageProps) => 
           className="mb-8 md:mb-8"
         >
           <motion.div
-            className="relative cursor-pointer mb-10"
+            className="relative cursor-pointer mb-6 md:mb-16"
             whileHover="hover"
             initial="initial"
           >
@@ -123,7 +123,7 @@ const LandingPage = ({ onScrollToRecruitment, isBlurred }: LandingPageProps) => 
                 rotate: { duration: 15, repeat: Infinity, ease: "linear" },
                 scale: { duration: 0.3 }
               }}
-              className="absolute inset-[-25%] border border-cyan-500/20 rounded-full z-0"
+              className="absolute inset-[-25%] border border-cyan-500/20 rounded-full z-0 hidden md:block"
             />
 
             {/* Logo Container with Layer 3 (Aura - Toned Down) */}
