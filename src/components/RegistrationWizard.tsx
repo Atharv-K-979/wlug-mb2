@@ -215,13 +215,15 @@ const RegistrationWizard = () => {
         </div>
 
         {/* Progress */}
-        <div className="flex gap-2">
+        <div className="flex gap-1 font-mono text-lg tracking-widest">
           {[1, 2, 3, 4].map((s) => (
-            <div
+            <span
               key={s}
-              className={`h-1 flex-1 transition-all duration-300 ${s <= step ? "bg-primary" : "bg-white/10"
-                }`}
-            />
+              className={`transition-colors duration-300 ${s <= step ? "text-primary text-glow" : "text-primary/20"
+                } ${s === step ? "animate-pulse" : ""}`}
+            >
+              {s <= step ? "■" : "□"}
+            </span>
           ))}
         </div>
       </div>

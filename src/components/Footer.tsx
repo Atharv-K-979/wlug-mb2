@@ -7,7 +7,7 @@ const Footer = () => {
 
     return (
         // REDUCED HEIGHT: Changed pt-16 to pt-10 and pb-8 to pb-6
-        <footer id="contact" className="bg-[#020617] border-t border-white/10 pt-6 pb-6 md:pt-10">
+        <footer id="contact" className="bg-[#020617] border-t border-white/10 py-6 md:py-10">
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-8">
 
@@ -64,7 +64,7 @@ const Footer = () => {
                                 <a
                                     key={index}
                                     href={social.href}
-                                    className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-muted-foreground hover:bg-primary/20 hover:text-primary hover:border-primary/50 transition-all duration-300 transform hover:scale-110"
+                                    className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-muted-foreground transition-all duration-300 transform hover:bg-primary/20 hover:text-white hover:border-primary/50 hover:shadow-[0_0_15px_rgba(255,255,255,0.6)] hover:-translate-y-1 hover:translate-x-1"
                                 >
                                     <social.icon className="w-4 h-4" />
                                 </a>
@@ -82,10 +82,10 @@ const Footer = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.4 }}
-                        className="flex flex-col md:flex-row justify-center md:justify-end gap-12 md:gap-16 pt-4"
+                        className="grid grid-cols-2 md:flex md:flex-row md:justify-end gap-8 md:gap-16 pt-4"
                     >
-                        {/* MENU SECTION - LEFT ALIGNED */}
-                        <div className="space-y-3 text-center md:text-left">
+                        {/* MENU SECTION */}
+                        <div className="space-y-3 text-left">
                             <h4 className="text-xs font-mono text-primary/60 mb-2 tracking-wider">[ MENU ]</h4>
 
                             {/* Fixed Home Link */}
@@ -97,7 +97,7 @@ const Footer = () => {
                                 Home
                             </Link>
 
-                            <button className="block w-full text-sm font-mono text-muted-foreground hover:text-primary transition-colors text-center md:text-left">
+                            <button className="block w-full text-sm font-mono text-muted-foreground hover:text-primary transition-colors text-left">
                                 Register
                             </button>
 
@@ -111,8 +111,8 @@ const Footer = () => {
                             </a>
                         </div>
 
-                        {/* LEGAL SECTION - LEFT ALIGNED */}
-                        <div className="space-y-3 text-center md:text-left">
+                        {/* LEGAL SECTION */}
+                        <div className="space-y-3 text-left">
                             <h4 className="text-xs font-mono text-primary/60 mb-2 tracking-wider">[ LEGAL ]</h4>
                             <a
                                 href="https://github.com/Walchand-Linux-Users-Group/gitbook/blob/wiki/policies/privacy-policy.md"

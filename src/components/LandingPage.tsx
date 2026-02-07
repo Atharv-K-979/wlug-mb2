@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Terminal, Cpu, Shield, Users, Zap } from "lucide-react";
+import MagneticButton from "./ui/MagneticButton";
 
 interface LandingPageProps {
   onScrollToRecruitment: () => void;
@@ -41,7 +42,7 @@ const LandingPage = ({ onScrollToRecruitment, isBlurred }: LandingPageProps) => 
       <HUDElements currentTime={currentTime} formatTime={formatTime} />
 
       {/* Main Hero Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4">
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pb-32">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -104,21 +105,24 @@ const LandingPage = ({ onScrollToRecruitment, isBlurred }: LandingPageProps) => 
         </motion.div>
 
         {/* Main CTA Button */}
-        <motion.button
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1, duration: 0.5 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.98 }}
-          onClick={onScrollToRecruitment}
-          className="group relative px-10 py-5 bg-primary/10 border-2 border-primary text-primary font-bold uppercase tracking-[0.2em] font-mono pulse-button transition-all duration-300 hover:bg-primary hover:text-primary-foreground mb-20 md:mb-0"
-        >
-          <span className="relative z-10 flex items-center gap-3">
-            <span className="text-primary/60 group-hover:text-primary-foreground/60">[</span>
-            INITIALIZE REGISTRATION
-            <span className="text-primary/60 group-hover:text-primary-foreground/60">]</span>
-          </span>
-        </motion.button>
+        <div className="mb-20 md:mb-0">
+          <MagneticButton onClick={onScrollToRecruitment}>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 1, duration: 0.5 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              className="group relative px-10 py-5 bg-primary/10 border-2 border-primary text-primary font-bold uppercase tracking-[0.2em] font-mono pulse-button transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
+            >
+              <span className="relative z-10 flex items-center gap-3">
+                <span className="text-primary/60 group-hover:text-primary-foreground/60">[</span>
+                INITIALIZE REGISTRATION
+                <span className="text-primary/60 group-hover:text-primary-foreground/60">]</span>
+              </span>
+            </motion.div>
+          </MagneticButton>
+        </div>
 
         {/* Decorative brackets around CTA */}
         <motion.div
@@ -148,6 +152,8 @@ const HUDElements = ({
 }) => {
   return (
     <>
+      {/* Mobile Sticky Header Removed as per request */}
+
       {/* Top Right - System Time */}
       <motion.div
         initial={{ opacity: 0, x: 20 }}

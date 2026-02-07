@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Crosshair, Users } from "lucide-react";
+import MagneticButton from "./ui/MagneticButton";
 
 interface RecruitmentSectionProps {
     onOpenRegistration: () => void;
@@ -53,17 +54,18 @@ const RecruitmentSection = ({ onOpenRegistration }: RecruitmentSectionProps) => 
                                 AUTHENTICATE YOUR SKILLS.
                             </p>
 
-                            <div className="pt-8">
-                                <button
-                                    onClick={onOpenRegistration}
-                                    className="cyber-button-solid text-lg md:text-xl px-10 py-5 group relative overflow-hidden"
-                                >
-                                    <span className="relative z-10 flex items-center gap-3">
-                                        <Users className="w-5 h-5" />
-                                        REGISTER NOW
-                                    </span>
-                                    <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-                                </button>
+                            <div className="pt-8 flex justify-center">
+                                <MagneticButton onClick={onOpenRegistration}>
+                                    <div
+                                        className="cyber-button-solid text-lg md:text-xl px-10 py-5 group relative overflow-hidden inline-flex items-center gap-3"
+                                    >
+                                        <span className="relative z-10 flex items-center gap-3">
+                                            <Users className="w-5 h-5" />
+                                            REGISTER NOW
+                                        </span>
+                                        <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                                    </div>
+                                </MagneticButton>
                             </div>
                         </div>
 
