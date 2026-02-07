@@ -20,7 +20,7 @@ const Footer = () => {
                     >
                         <a href="https://www.wcewlug.org">
                             {/* Large Centered Logo */}
-                            <div className="w-28 h-28 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center p-2 shadow-lg hover:border-primary/30 transition-colors duration-300">
+                            <div className="w-40 h-40 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center p-2 shadow-lg hover:border-primary/30 transition-colors duration-300">
 
                                 <img
                                     src="/wlug-logo2.png"
@@ -31,15 +31,15 @@ const Footer = () => {
                             </div>
                         </a>
                         {/* Text Below Logo */}
-                        <div className="space-y-2">
+                        {/* <div className="space-y-2"> */}
                             {/* <h3 className="text-xl font-display font-bold text-white tracking-wider">WLUG ARCHITECTS</h3> */}
-                            <div className="text-sm font-mono text-muted-foreground/80 space-y-1">
+                            {/* <div className="text-sm font-mono text-muted-foreground/80 space-y-1">
                                 <p className="text-primary/80 font-bold tracking-widest uppercase">
                                     COMMUNITY | KNOWLEDGE | SHARE
                                 </p>
                                 <p className="text-xs opacity-60">Empowering the open source future.</p>
                             </div>
-                        </div>
+                        </div> */}
 
                     </motion.div>
 
