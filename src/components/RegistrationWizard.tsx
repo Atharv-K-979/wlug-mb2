@@ -34,6 +34,8 @@ const branchOptions = [
   { value: "eee", label: "Electrical" },
   { value: "robotics", label: "Robotics and Automation" },
   { value: "aiml", label: "AIML" },
+  { value: "mech", label: "Mechanical" },
+  { value: "civil", label: "Civil" },
 ];
 
 const RegistrationWizard = () => {

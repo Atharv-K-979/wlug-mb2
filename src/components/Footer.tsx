@@ -60,7 +60,7 @@ const Footer = () => {
                                 { icon: Linkedin, href: "https://www.linkedin.com/company/wlug-club/" },
                                 { icon: Github, href: "https://github.com/Walchand-Linux-Users-Group" },
                                 { icon: Twitter, href: "https://mobile.twitter.com/wcewlug" },
-                                { icon: FaDiscord, href: "https://discord.gg/FGcEpYuC" },
+                                { icon: FaDiscord, href: "https://discord.gg/deAGWT8E4" },
                             ].map((social, index) => (
                                 <a
                                     key={index}
