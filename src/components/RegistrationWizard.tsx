@@ -53,9 +53,30 @@ const RegistrationWizard = () => {
     }
   };
 
+  // const handleFileChange = (e: ChangeEvent<HTMLInputElement>, field: "profilePhoto" | "resume") => {
+  //   if (e.target.files && e.target.files[0]) {
+  //     setFormData((prev) => ({ ...prev, [field]: e.target.files![0] }));
+  //     if (errors[field]) {
+  //       setErrors((prev) => ({ ...prev, [field]: undefined }));
+  //     }
+  //   }
+  // };
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>, field: "profilePhoto" | "resume") => {
-    if (e.target.files && e.target.files[0]) {
-      setFormData((prev) => ({ ...prev, [field]: e.target.files![0] }));
+    const file = e.target.files?.[0];
+
+    // 15MB Limit in Bytes (15 * 1024 * 1024)
+    const MAX_SIZE = 15728640;
+
+    if (file) {
+      // Check size immediately
+      if (file.size > MAX_SIZE) {
+        alert(`File is too large! Please choose a file under 15MB.\nYour file: ${(file.size / (1024 * 1024)).toFixed(2)} MB`);
+        e.target.value = ""; // Clear the input
+        return; // Stop here
+      }
+
+      // If size is OK, proceed as normal
+      setFormData((prev) => ({ ...prev, [field]: file }));
       if (errors[field]) {
         setErrors((prev) => ({ ...prev, [field]: undefined }));
       }
