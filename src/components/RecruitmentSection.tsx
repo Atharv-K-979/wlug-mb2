@@ -89,7 +89,7 @@ const RecruitmentSection = ({ onOpenRegistration }: RecruitmentSectionProps) => 
             {/* Content */}
             <div className="flex flex-col gap-8 items-center max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-6xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-primary bg-[length:200%_auto] animate-text-shimmer text-center">
-                MEMBER BOARD 2
+                MEMBER BOARD <span className="text-[2.3rem] md:text-[4.88rem] leading-none">2</span>
               </h2>
 
               {/* Countdown */}
