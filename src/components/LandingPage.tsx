@@ -138,14 +138,20 @@ const LandingPage = ({ onScrollToRecruitment, isBlurred }: LandingPageProps) => 
         </motion.div>
 
         {/* Main Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          className="text-3xl md:text-5xl font-bold font-display text-center mb-4 glitch-text cursor-default"
-        >
-          <span className="text-primary ml-4">WALCHAND LINUX USERS' GROUP</span>
-        </motion.h1>
+<motion.h1
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.4, duration: 0.6 }}
+  className="text-3xl md:text-5xl font-bold font-display text-center mb-4 glitch-text cursor-default leading-tight"
+>
+  <span className="block md:inline text-primary whitespace-nowrap">
+    WALCHAND LINUX{" "}
+  </span>
+  <span className="block md:inline text-primary whitespace-nowrap">
+    USERS' GROUP
+  </span>
+</motion.h1>
+
 
         {/* Subtext */}
         <motion.p
