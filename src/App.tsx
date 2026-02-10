@@ -9,7 +9,7 @@ import LandingPage from "@/components/LandingPage";
 import RegistrationModal from "@/components/RegistrationModal";
 import RecruitmentSection from "@/components/RecruitmentSection";
 import Footer from "@/components/Footer";
-
+import RegistrationEnd from "@/components/RegistrationEnd";
 const queryClient = new QueryClient();
 
 const App = () => {
@@ -71,7 +71,8 @@ const App = () => {
                 />
               </section>
               <section id="register">
-                <RecruitmentSection onOpenRegistration={handleOpenRegistration} />
+                {/* <RecruitmentSection onOpenRegistration={handleOpenRegistration} /> */}
+                <RegistrationEnd />
               </section>
               <section id="footer">
                 <Footer />
