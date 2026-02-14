@@ -7,7 +7,7 @@ interface RecruitmentSectionProps {
 }
 
 const RecruitmentSection = ({ onOpenRegistration }: RecruitmentSectionProps) => {
-  const targetDate = new Date(2026, 1, 15, 17, 59, 59).getTime();
+  const targetDate = new Date(2026, 1, 15, 23, 59, 59).getTime();
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
